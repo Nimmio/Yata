@@ -20,9 +20,9 @@ model Todo {
   text      String
   dueDate   DateTime?
   author    User @relation(fields: [authorId], references: [id])
-  authorId Int    @unique
+  authorId Int    
   group     Group? @relation(fields: [groupId], references: [id])
-  groupId Int    @unique
+  groupId Int?    
   priority  Priority
   isDone    Boolean
 }
