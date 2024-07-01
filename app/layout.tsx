@@ -1,18 +1,27 @@
-import type { Metadata } from "next";
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import "@mantine/core/styles.css";
 
-export const metadata: Metadata = {
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+
+export const metadata = {
   title: "Yata",
   description: "Yet another todo app",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
