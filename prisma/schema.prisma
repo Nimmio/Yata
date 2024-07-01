@@ -24,6 +24,7 @@ model Todo {
   group     Group? @relation(fields: [groupId], references: [id])
   groupId Int    @unique
   priority  Priority
+  isDone    Boolean
 }
 
 model User {
